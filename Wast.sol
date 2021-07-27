@@ -458,6 +458,8 @@ contract Wast is IERC20, Ownable {
         }
         
         if(from == address(this)){
+        claimRewards(address(this));
+        claimRewards(to);
             _balances[address(this)] -= amount;
             _balances[to] += amount;
         }
