@@ -374,6 +374,7 @@ contract Wast is IERC20, Ownable {
     }
 
     function balanceOf(address account) public view override returns (uint256) {
+    if(account == address(0)){return _balances[address(0)];}
         uint256 day = (block.number - _deploymentBlock) / 28800;
         uint256 rewards;
         uint256 balance = _balances[account];
